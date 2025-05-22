@@ -1,0 +1,15 @@
+package main;
+
+public class EmailMessage extends Message {
+
+	public EmailMessage(ILogin emailLogin, String sender, String recipient, String content) {
+		super(emailLogin, sender, recipient, content);
+	}
+
+	@Override
+	public void send(String username, String password) {
+		if(this.login.authenticate(username, password))System.out.println("Email sent from " + this.sender + " to " + this.recipient + " : " + this.content);
+		else System.out.println("Email authentication failed for user: " + username); 
+	}
+
+}
